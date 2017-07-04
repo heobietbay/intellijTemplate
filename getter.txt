@@ -1,0 +1,21 @@
+/**
+* Getter.
+* @return $field.name
+*/
+#if($field.modifierStatic)
+static ##
+#end
+$field.type ##
+#set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))
+#if ($field.boolean && $field.primitive)
+is##
+#else
+get##
+#end
+${name}() {
+#if($field.isDate())
+    return $field.name != null ? new Date($field.name .getTime()) : $field.name;
+    #else
+     return $field.name;
+#end
+}
