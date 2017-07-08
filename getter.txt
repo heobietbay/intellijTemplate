@@ -14,7 +14,7 @@ get##
 #end
 ${name}() {
 #if($field.isDate())
-    return $field.name != null ? new Date($field.name .getTime()) : $field.name;
+    return $field.name != null ? (Date) $field.name .clone() : $field.name;
     #else
      return $field.name;
 #end
