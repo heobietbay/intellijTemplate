@@ -1,9 +1,8 @@
-#set($paramName = $helper.getParamName($field, $project))
-
 /**
 * Setter.
 * @param $field.name $field.name
 */
+#set($paramName = $helper.getParamName($field, $project))
 #if($field.modifierStatic)
 static ##
 #end
